@@ -1,0 +1,83 @@
+@import 'src/styles';
+
+.contact {
+  min-height: 100vh;
+
+  &__content {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 100px 0;
+  }
+
+  &__info {
+    position: relative;
+    @include flex-center;
+    flex-direction: column;
+    row-gap: 20px;
+    font-size: 18px;
+    line-height: 1.5;
+    text-align: left;
+
+    a {
+      color: #555;
+      text-decoration: none;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: darken(#555, 10%);
+      }
+    }
+
+    mat-icon {
+      position: relative;
+      font-size: 40px;
+      height: 100px;
+      display: flex;
+      width: 100px;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+
+      &:hover {
+        color: darken(#555, 10%);
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 85px;
+        height: 85px;
+        border: 1px solid $primary-color;
+        border-radius: 50%;
+      }
+    }
+  }
+  p {
+    padding-top: 80px;
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: map-get($breakpoints, lg)) {
+  .contact {
+    min-height: 100vh;
+
+    &__content {
+      padding: 30px 0 80px 0;
+      row-gap: 20px;
+    }
+
+    &__info {
+      width: 100%;
+    }
+
+    p {
+      font-size: 1em;
+    }
+  }
+}

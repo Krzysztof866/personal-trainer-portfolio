@@ -1,0 +1,198 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$PersonalTrainerWebsite-primary: mat.define-palette(mat.$indigo-palette);
+$PersonalTrainerWebsite-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$PersonalTrainerWebsite-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$PersonalTrainerWebsite-theme: mat.define-light-theme((
+  color: (
+    primary: $PersonalTrainerWebsite-primary,
+    accent: $PersonalTrainerWebsite-accent,
+    warn: $PersonalTrainerWebsite-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($PersonalTrainerWebsite-theme);
+
+/* You can add global styles to this file, and also import other style files */
+
+//imports
+@import "./node_modules/bootstrap/scss/bootstrap";
+@import "node_modules/ngx-bootstrap/datepicker/bs-datepicker";
+
+//breakpoints
+$breakpoints: (
+  'xs': 420px,
+  'sm': 576px,
+  'md': 768px,
+  'lg': 992px,
+  'xl': 1200px
+) !default;
+
+//mixins
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+//colors
+$primary-color: #B18C7A;
+$white-color: #FFFFFF;
+$black-color: #000000;
+$accent-color: #BB9E00;
+
+//fonts
+@font-face {
+  font-family: NotoSans;
+  src: url("/assets/fonts/NotoSans/NotoSans-Regular.ttf") format('truetype');
+}
+
+@font-face {
+  font-family: Spectral;
+  src: url("/assets/fonts/Spectral/Spectral-Regular.ttf") format('truetype');
+}
+
+// base
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: NotoSans, "Helvetica Neue", sans-serif;
+}
+
+html, body, app-root, nav {
+  height: 100%;
+}
+
+main {
+  position: relative;
+}
+
+.section {
+  padding: 80px 0 100px 0;
+}
+
+.shadow-sm {
+  position: relative;
+  z-index: 9;
+}
+
+h1 {
+  font-size: 4.5em;
+  font-weight: 600;
+  text-align: center;
+  line-height: 1;
+  color: $black-color;
+
+  @media screen and (max-width: map-get($breakpoints, sm)) {
+    font-size: 2.25em;
+    padding: 0 15px;
+    color: #f5deb3;
+  }
+
+  span {
+    font-size: 0.5em;
+    font-weight: 400;
+    line-height: 1.1;
+    color: $white-color;
+  }
+}
+
+h2 {
+  margin-bottom: 60px;
+  font-size: 3em;
+  font-weight: 600;
+  color: $black-color;
+  text-transform: capitalize;
+  text-align: center;
+
+  @media screen and (max-width: map-get($breakpoints, sm)) {
+    font-size: 2.5em;
+  }
+
+  span {
+    color: $primary-color;
+    text-transform: lowercase;
+  }
+}
+
+//buttons
+.primary-button,
+.secondary-button {
+  border-radius: 10px;
+  padding: 10px 25px;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.2s;
+  font-size: 20px;
+
+  span {
+    margin-right: 20px;
+  }
+
+  .arrow-icon {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    transition: transform 0.3s ease;
+  }
+
+  &:hover{
+    color: $white-color;
+
+    .arrow-icon {
+      transform: translateY(-50%) translateX(5px);
+      color: $white-color;
+    }
+  }
+
+  &:visited {
+    color: $primary-color;
+  }
+}
+
+.primary-button {
+  background-color: $white-color;
+  color: $primary-color;
+  border: 1px solid $primary-color;
+
+  &:hover {
+    background-color: darken($primary-color, 10%);
+  }
+}
+
+.secondary-button {
+  color: $white-color;
+  background-color: $primary-color;
+
+  &:hover {
+    background-color: darken($primary-color, 10%);
+  }
+
+  &:focus,
+  &:active {
+    background-color: darken($primary-color, 20%);
+  }
+}

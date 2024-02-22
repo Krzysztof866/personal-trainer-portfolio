@@ -1,0 +1,22 @@
+<section class="testimonials">
+  <div class="container">
+    <div class="testimonials__content">
+      <ngx-slick-carousel #slickModal="slick-carousel" class="testimonials__carousel" [config]="slideConfigTestimonials" (init)="slickInit($event)">
+        <div ngxSlickItem *ngFor="let testimonial of testimonials">
+          <div class="testimonial">
+            <p class="testimonial__quote">{{ testimonial.quote }}</p>
+            <p class="testimonial__author">{{ testimonial.author }}</p>
+          </div>
+        </div>
+      </ngx-slick-carousel>
+      <div class="testimonials__buttons">
+        <button (click)="goToPrev()">
+          <mat-icon>keyboard_arrow_left</mat-icon>
+        </button>
+        <button (click)="goToNext()">
+          <mat-icon>keyboard_arrow_right</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

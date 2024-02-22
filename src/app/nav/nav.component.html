@@ -1,0 +1,51 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+               [ngClass]="{ hidden: !(isHandset$ | async) }"
+               [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+               [mode]="(isHandset$ | async) ? 'over' : 'side'"
+               [opened]="(isHandset$ | async) === false">
+    <button
+      type="button"
+      aria-label="Close sidenav"
+      mat-icon-button
+      (click)="drawer.toggle()"
+      class="sidenav-close-button">
+      <mat-icon aria-label="Close icon">close</mat-icon>
+    </button>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/about" routerLinkActive="text-bold" (click)="closeSidenav(drawer)">O mnie</a>
+      <a mat-list-item routerLink="/achievements" routerLinkActive="text-bold" (click)="closeSidenav(drawer)">Osiągnięcia</a>
+      <a mat-list-item routerLink="/transformations" routerLinkActive="text-bold" (click)="closeSidenav(drawer)">Przemiany</a>
+      <a mat-list-item routerLink="/gallery" routerLinkActive="text-bold" (click)="closeSidenav(drawer)">Galeria</a>
+      <a mat-list-item routerLink="/book-training" routerLinkActive="text-bold" (click)="closeSidenav(drawer)">Umów trening</a>
+      <a mat-list-item routerLink="/contact" routerLinkActive="text-bold" (click)="closeSidenav(drawer)">Kontakt</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="container">
+      <mat-toolbar class="toolbar">
+        <button
+          type="button"
+          aria-label="Toggle sidenav"
+          mat-icon-button
+          (click)="drawer.toggle()"
+          *ngIf="isHandset$ | async">
+          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+        <a class="toolbar-brand" routerLink="/">
+          <img ngSrc="assets/images/logo.png" alt="logo-site" height="60" width="180" priority>
+        </a>
+        <span class="spacer"></span>
+        <div class="toolbar-list" [ngClass]="{ hidden: (isHandset$ | async) }">
+          <a mat-list-item routerLink="/about" routerLinkActive="text-bold">O mnie</a>
+          <a mat-list-item routerLink="/achievements" routerLinkActive="text-bold">Osiągnięcia</a>
+          <a mat-list-item routerLink="/transformations" routerLinkActive="text-bold">Przemiany</a>
+          <a mat-list-item routerLink="/gallery" routerLinkActive="text-bold">Galeria</a>
+          <a mat-list-item routerLink="/book-training" routerLinkActive="text-bold">Umów trening</a>
+          <a mat-list-item routerLink="/contact" routerLinkActive="text-bold">Kontakt</a>
+        </div>
+      </mat-toolbar>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+

@@ -1,0 +1,35 @@
+<section class="hero">
+  <ngx-slick-carousel class="carousel" [config]="slideConfig">
+    <div ngxSlickItem *ngFor="let slide of slides; let i = index;">
+      <div class="hero__carousel" [class.active]="i === currentIndex">
+        <div class="hero__banner">
+          <img class="hero__image" [src]="slide.img" alt="slide{{ i }}">
+        </div>
+      </div>
+    </div>
+  </ngx-slick-carousel>
+  <div class="hero__banner">
+    <video class="hero__video" [volume]="0" autoplay muted loop>
+      <source src="/assets/images/slider/sports.mp4" type="video/mp4">
+    </video>
+    <div class="hero__title">
+        <h1> Zainspiruj swoje życie na nowo <br>
+            <span> zdrowie. siła. transformacja.</span>
+        </h1>
+    </div>
+  </div>
+  <a (click)="scrollToElement('book-training')">
+    <mat-icon class="arrow-icon">keyboard_arrow_down</mat-icon>
+  </a>
+</section>
+
+<section class="statement">
+  <div class="container">
+    <div class="statement__inner">
+      <h2 class="statement__title center">Uwierz w prawdziwą przemianę! <br> Zapisz się na trening już teraz :)</h2>
+    </div>
+  </div>
+</section>
+
+<app-testimonials></app-testimonials>
+<app-book-training></app-book-training>
