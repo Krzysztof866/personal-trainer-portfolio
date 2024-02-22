@@ -1,0 +1,12 @@
+<section class="section gallery">
+  <div class="container">
+    <h2 class="gallery__title">Nasza <span>galeria</span></h2>
+    <div class="gallery__content">
+      <mat-grid-list cols="2" rowHeight="350px" gutterSize="20px">
+        <mat-grid-tile *ngFor="let image of galleryImages; let i = index" (click)="openDialog(i)">
+          <img [src]="image.url" alt="{{ image.alt }}" class="gallery__image">
+        </mat-grid-tile>
+      </mat-grid-list>
+    </div>
+  </div>
+</section>

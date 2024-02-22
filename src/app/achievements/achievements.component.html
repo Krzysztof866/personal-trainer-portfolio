@@ -1,0 +1,18 @@
+<section class="section achievements">
+  <div class="container">
+    <h2 class="achievements__title">Moje <span>osiągnięcia</span></h2>
+    <div class="achievements__container">
+      <mat-card class="achievement-card" *ngFor="let achievement of achievements; let i = index">
+        <mat-card-header class="achievement-card__header">
+          <mat-card-title class="achievement-card__title">{{ achievement.title }}</mat-card-title>
+          <div mat-card-avatar class="achievement-icon">
+            <mat-icon>{{ icons[i] }}</mat-icon>
+          </div>
+        </mat-card-header>
+        <mat-card-content class="achievement-card__content">
+          <p class="achievement-card__description">{{ achievement.description }}</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</section>

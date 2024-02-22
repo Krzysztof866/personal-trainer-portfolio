@@ -1,0 +1,17 @@
+@import 'src/styles';
+
+.footer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $primary-color;
+  color: $white-color;
+  padding: 20px 0;
+  text-align: center;
+  height: 80px;
+
+  p {
+    margin-bottom: 0;
+  }
+}

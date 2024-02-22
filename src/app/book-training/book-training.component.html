@@ -1,0 +1,48 @@
+<section id="book-training" class="section book-training">
+  <div class="container">
+    <h2>Umów <span>trening</span></h2>
+    <form *ngIf="!formSubmitted" class="book-training__form" [formGroup]="trainingForm" (ngSubmit)="submitForm()">
+      <!-- Full Name -->
+      <mat-form-field hideRequiredMarker="true">
+        <mat-label>Imię i Nazwisko</mat-label>
+        <input matInput formControlName="from_name" required>
+        <mat-error *ngIf="trainingForm.controls['from_name'].invalid && trainingForm.controls['from_name'].touched">
+          To pole jest wymagane.
+        </mat-error>
+      </mat-form-field>
+      <!-- Email -->
+      <mat-form-field hideRequiredMarker="true">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="from_email" required>
+        <mat-error *ngIf="trainingForm.controls['from_email'].invalid && trainingForm.controls['from_email'].touched">
+          Proszę podać poprawny adres e-mail.
+        </mat-error>
+      </mat-form-field>
+      <!-- Subject -->
+      <mat-form-field hideRequiredMarker="true">
+        <mat-label>Temat</mat-label>
+        <input matInput formControlName="subject" required>
+        <mat-error *ngIf="trainingForm.controls['subject'].invalid && trainingForm.controls['subject'].touched">
+          To pole jest wymagane.
+        </mat-error>
+      </mat-form-field>
+      <!-- Message -->
+      <mat-form-field hideRequiredMarker="true">
+        <mat-label>Wiadomość</mat-label>
+        <textarea matInput formControlName="message" required></textarea>
+        <mat-error *ngIf="trainingForm.controls['message'].invalid && trainingForm.controls['message'].touched">
+          To pole jest wymagane.
+        </mat-error>
+      </mat-form-field>
+      <button class="primary-button" type="submit" [disabled]="formSubmitted">
+        <span>Umów Trening</span>
+        <mat-icon class="arrow-icon">arrow_forward</mat-icon>
+      </button>
+    </form>
+  </div>
+  <div *ngIf="formSubmitted" class="thank-you-block">
+    <div class="container">
+      <h3>{{ submissionMessage }}</h3>
+    </div>
+  </div>
+</section>

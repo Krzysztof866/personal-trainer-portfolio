@@ -1,0 +1,37 @@
+<section class="section about">
+  <div class="about__title">
+    <h2>O <span>mnie</span></h2>
+  </div>
+  <div class="about__content">
+    <div class="about__row">
+      <div class="about__column">
+        <p class="about__text">{{ aboutTexts[0] }}</p>
+        <div class="about__button">
+          <button class="primary-button" (click)="openSocialMediaDialog()">
+            <span>Kliknij, aby zobaczyć moje media społecznościowe</span>
+            <mat-icon class="arrow-icon">arrow_forward</mat-icon>
+          </button>
+        </div>
+      </div>
+      <div class="about__column about__column--img">
+        <img [src]="trainerImages[0]" alt="trainer-image-1" class="about__image">
+      </div>
+    </div>
+    <div class="about__row">
+      <div class="about__column about__column--img">
+        <img [src]="trainerImages[1]" alt="trainer-image-2" class="about__image">
+      </div>
+      <div class="about__column">
+        <p class="about__text">{{ aboutTexts[1] }}</p>
+      </div>
+    </div>
+    <div class="about__row">
+      <div class="about__column">
+        <p class="about__text">{{ aboutTexts[2] }}</p>
+      </div>
+      <div class="about__column about__column--img">
+        <img [src]="trainerImages[2]" alt="trainer-image-3" class="about__image">
+      </div>
+    </div>
+  </div>
+</section>

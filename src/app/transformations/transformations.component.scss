@@ -1,0 +1,36 @@
+@import 'src/styles';
+
+.transformations {
+  &__grid {
+    @include flex-center;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .progress-spinner-container {
+    margin: 20px auto;
+  }
+
+  .transformation-card {
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+
+  .transformation-card.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .quote {
+    font-style: italic;
+    margin-bottom: 10px;
+  }
+
+  .author {
+    font-weight: 600;
+  }
+}
+
+::ng-deep  .mat-mdc-progress-spinner .mdc-circular-progress__determinate-circle, .mat-mdc-progress-spinner .mdc-circular-progress__indeterminate-circle-graphic {
+  stroke: $accent-color !important;
+}

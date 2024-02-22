@@ -1,0 +1,33 @@
+@import 'src/styles';
+
+.gallery {
+  &__content {
+    @include flex-center;
+
+    mat-grid-list {
+      width: 100%;
+      gap: 20px;
+
+      .gallery__image {
+        width: 100%;
+        height: auto;
+        cursor: pointer;
+        transition: filter 0.3s ease;
+        &:hover {
+          filter: brightness(0.8);
+        }
+      }
+
+      .mat-grid-tile {
+        transition: transform 0.3s ease;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: map-get($breakpoints, md)) {
+  .gallery__content mat-grid-list .gallery__image {
+    height: 300px;
+    width: auto;
+  }
+}

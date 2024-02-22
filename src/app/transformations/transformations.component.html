@@ -1,0 +1,26 @@
+<section class="section transformations">
+  <div class="container">
+    <h2 class="transformations__title">Przemiany <span>uczestników</span></h2>
+    <div class="transformations__grid">
+      <div *ngIf="isLoading" class="progress-spinner-container">
+        <mat-progress-spinner
+          class="spinner"
+          mode="determinate"
+          [value]="loadingProgress"
+        ></mat-progress-spinner>
+      </div>
+      <div *ngFor="let transformation of transformations; let i = index">
+        <mat-card
+          class="transformation-card"
+          [class.active]="transformationIndex === i"
+          [class.show]="isCardShown"
+        >
+          <mat-card-content>
+            <p class="quote">{{ transformation.quote }}</p>
+            <p class="author">- {{ transformation.author }}</p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</section>
