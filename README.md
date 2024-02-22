@@ -2,6 +2,15 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.10.
 
+# The project presents a portfolio for a personal trainer.
+
+desktop view:
+![image](https://github.com/Krzysztof866/personal-trainer-portfolio/assets/67167027/9cd22666-5257-4a16-9540-fb4821524ce3)
+
+mobile:
+![image](https://github.com/Krzysztof866/personal-trainer-portfolio/assets/67167027/c414c166-e6f0-465c-8642-9876fee48853)
+
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
